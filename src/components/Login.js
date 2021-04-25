@@ -22,7 +22,6 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.setState({ submitted: true });
     const { username, password } = this.state;
     if (username && password) {
       this.props.fetchToken(username, password);
@@ -30,7 +29,6 @@ class Login extends Component {
   }
 
   render() {
-    const { loginInfo } = this.props;
     const { username, password } = this.state;
     return (
       <div>
@@ -60,9 +58,6 @@ class Login extends Component {
             </div>
             <div className="col-md-2"></div>
           </div>
-          <div className="row">
-            <div className="col-md-2"><p>{loginInfo}</p></div>
-          </div>
         </div>
       </div>
     )
@@ -72,7 +67,7 @@ class Login extends Component {
 //get data from store(Receive redux state)
 const mapStateToProps = state => {
   return {
-    loginInfo: state.info.token
+    loginInfo: state.info
   }
 }
 

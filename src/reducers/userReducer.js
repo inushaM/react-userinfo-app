@@ -3,7 +3,7 @@ import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAILURE } from '../a
 
 const initialState = {
     loading: false,
-    info: [],
+    users: [],
     error: ''
 }
 
@@ -17,13 +17,13 @@ const userReducer = (state = initialState, atcion) => {
         case FETCH_USER_SUCCESS:
             return {
                 loading: false,
-                info: atcion.payload,
+                users: atcion.payload,
                 error: ''
             }
         case FETCH_USER_FAILURE:
             return {
                 loading: false,
-                info: [],
+                users: [],
                 error: atcion.payload
             }
         default: return state

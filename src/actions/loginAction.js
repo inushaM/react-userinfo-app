@@ -2,7 +2,6 @@ import { FETCH_LOGIN_REQUEST, FETCH_LOGIN_SUCCESS, FETCH_LOGIN_FAILURE } from '.
 import { history } from '../utils/history';
 const axios = require('axios')
 
-
 export const loginActions = {
     fetchToken,
     fetchLoginRequest,
@@ -20,7 +19,7 @@ function fetchToken(username, password) {
         })
             .then(response => {
                 if (response.data.token) {
-                    const info = response.data
+                    const info = response.data.token
                     dispatch(fetchLoginSuccess(info))
                     history.push('/DashBoard')
                     refreshPage()

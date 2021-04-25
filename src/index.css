@@ -82,7 +82,89 @@ li a:hover:not(.active) {
   background-color:rgb(0, 0, 0)
 }
 
+.hrLineStaff {
+  height:1px;
+  color:rgb(223, 10, 187);
+  background-color:rgb(223, 10, 187);
+}
+
 .divUser {
   background-color:rgb(255, 255, 255);
   margin: 18px;
+  border-radius: 4px;
 }
+
+.divTop {
+  margin: 12px;
+}
+
+.messageButton {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.messageButton:hover{
+  color: #534c4c;
+  border: #534c4c solid 1px;
+  background:white;
+}
+
+.sosButton {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: rgb(241, 7, 171);;
+  border: 1px solid rgb(241, 7, 171);
+  border-radius: 50%;
+  height: 120%;
+}
+
+.sosButton:hover{
+  color: rgb(27, 7, 7);
+  border: 1px solid #f1106e;
+  background:#f1106e;
+}
+
+.staffButton {
+  background-color: white;
+  color: rgb(88, 88, 88);
+  border: 1px solid rgb(88, 88, 88);
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: left !important;
+}
+.staffButton:hover{
+  color: #000;
+  border: #000 solid 1px;
+  background:white;
+}
+
+.styleRemoveButton {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  margin-top: -50px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: left !important;
+}
+
+.liveMapColor {
+  color:rgb(62, 62, 196);
+}
+
+.titleMargin {
+  margin-top: 10px;
+}
+
