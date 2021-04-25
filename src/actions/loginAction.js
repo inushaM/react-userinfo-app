@@ -9,6 +9,7 @@ export const loginActions = {
     fetchLoginFailure,
 };
 
+//this is the event of login and get access token
 function fetchToken(username, password) {
     
     return (dispatch) => {

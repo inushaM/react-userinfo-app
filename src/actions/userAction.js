@@ -9,6 +9,7 @@ export const userActions = {
     fetchUserFailure,
 };
 
+//this is the event of geting user list 
 function fetchUsers(token) {
     
     return (dispatch) => {

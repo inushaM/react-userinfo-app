@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { userActions } from '../actions/userAction'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBriefcase, faFileWord, faPlay, faSignOutAlt, faTv, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
+import { faBriefcase, faFileWord, faPlay, faTv, faUsers, faVideo } from '@fortawesome/free-solid-svg-icons';
 import SimpleMap from '../utils/SimpleMap'
 const axios = require('axios')
 
@@ -18,7 +18,7 @@ class Dashboard extends Component {
             name: '',
             latitude: 0,
             longitude: 0,
-            token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTYxOTM1NDAxNywiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTYxOTM1MDQxN30.omh5-5y769upAaY3XKkeIZU6aHNCi4vFQ9Mx6H0k3p0',
+            token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJ1c2VybmFtZSI6ImFjaGFsYSIsImV4cCI6MTYxOTM1ODczNSwiZW1haWwiOiJhY2hhbGFAbWFpbGluYXRvci5jb20iLCJvcmlnX2lhdCI6MTYxOTM1NTEzNX0.5q0eFY3klSgW2Yu4k86FUZjFNrpxNpgQh9jKp8PVdwE',
         };
 
         this.changeHandler = this.changeHandler.bind(this);
@@ -49,7 +49,7 @@ class Dashboard extends Component {
     viewMapHandler = (latitude, longitude) => {
         this.setState({
             latitude: latitude,
-            latitude: longitude
+            longitude: longitude
         });
     }
 
@@ -141,7 +141,7 @@ class Dashboard extends Component {
                                                                     <button class="button staffButton" onClick={() => this.viewMapHandler(log.latitude, log.longitude)}>
                                                                         <tr>
                                                                             <td>{log.date}</td>
-                                                                            <td>{log.alert_view == true ? "true" : "false"}</td>
+                                                                            <td>{log.alert_view === true ? "true" : "false"}</td>
                                                                             <td>{log.time}</td>
                                                                             <td></td><td></td><td></td>
                                                                             <td className="liveMapColor">Live Map</td>
