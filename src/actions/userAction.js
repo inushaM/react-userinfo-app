@@ -2,45 +2,34 @@ import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_FAILURE } from './us
 import { history } from '../utils/history';
 const axios = require('axios')
 
-
-export const loginActions = {
-    fetchToken,
+export const userActions = {
+    fetchUsers,
     fetchUserRequest,
     fetchUserSuccess,
     fetchUserFailure,
 };
 
-function fetchUsers(username, password) {
+function fetchUsers(token) {
     
     return (dispatch) => {
+        
         dispatch(fetchUserRequest())
-        axios.post('http://apps.avantrio.xyz:8010/api/user/login', {
-            username: username,
-            password: password
-        })
+        axios.get('http://apps.avantrio.xyz:8010/api/users' , { headers: {"Authorization" : `Bearer ${token}`} })
             .then(response => {
-                if (response.data.token) {
-                    const info = response.data
-                    dispatch(fetchUserSuccess(info))
-                    history.push('/DashBoard')
-                    refreshPage()
+                if (response.data) {
+                    const user = response.data
+                    dispatch(fetchUserSuccess(user))
                 }
                 else {
                     history.push("/")
-                    refreshPage()
                 }
             })
             .catch(error => {
                 dispatch(fetchUserFailure(error.message))
                 history.push("/")
-                refreshPage()
             })
     }
 }
-
-function refreshPage() {
-    window.location.reload(false);
-  }
 
 function fetchUserRequest() {
     return {
@@ -48,10 +37,10 @@ function fetchUserRequest() {
     }
 }
 
-function fetchUserSuccess(info) {
+function fetchUserSuccess(users) {
     return {
         type: FETCH_USER_SUCCESS,
-        payload: info
+        payload: users
     }
 }
 
