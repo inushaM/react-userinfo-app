@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginActions } from '../actions/loginAction'
+import SimpleMap from '../utils/SimpleMap'
 
 class Login extends Component {
 
