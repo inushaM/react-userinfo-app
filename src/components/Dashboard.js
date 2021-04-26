@@ -20,32 +20,14 @@ class Dashboard extends Component {
             longitude: 0,
             token: '',
         };
-
         this.changeHandler = this.changeHandler.bind(this);
+        this.staffHandler = this.staffHandler.bind(this);
+        this.viewMapHandler = this.viewMapHandler.bind(this);
     }
 
     changeHandler = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
-
-    // componentWillMount() {
-    //     axios.post('http://apps.avantrio.xyz:8010/api/user/login', {
-    //         username: 'achala',
-    //         password: 'Test@1234'
-    //     })
-    //         .then(response => {
-    //             if (response.data.token) {
-    //                 this.setState({
-    //                     // token: response.data.token
-    //                 });
-    //                 // this.props.fetchUsers(response.data.token);
-    //             }
-    //         })
-    //         .catch(error => {
-
-    //         })
-
-    // }
 
     componentDidMount() {
         const {token} = this.props;
@@ -64,7 +46,7 @@ class Dashboard extends Component {
                 console.log(err);
             });
     }
-
+    //view google map location
     viewMapHandler = (latitude, longitude) => {
         this.setState({
             latitude: latitude,
@@ -187,12 +169,6 @@ class Dashboard extends Component {
 }
 
 //get data from store(Receive redux state)
-// const mapStateToProps = state => {
-//     return {
-//         userData: state.info
-//     }
-// }
-
 const mapStateToProps = (state) => {
     return {
       token: state.login.info,

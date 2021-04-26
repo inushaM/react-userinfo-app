@@ -9,7 +9,6 @@ import './index.css';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import { history } from './utils/history';
-import App from './App';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -20,11 +19,6 @@ ReactDOM.render(
       </Switch>
     </Router>
   </Provider>
-
-
-  // <Provider store={store}>
-  //   <App />
-  // </Provider>
   ,
   document.getElementById('root')
 );

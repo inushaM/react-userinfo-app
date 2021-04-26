@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './marker';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 class SimpleMap extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      latitude: props.latitude,
-      longitude: props.longitude,
       center: {
         lat: this.props.latitude,
         lng: this.props.longitude
@@ -35,12 +31,6 @@ class SimpleMap extends Component {
           defaultCenter={this.state.center}
           defaultZoom={this.props.zoom}
         >
-          {/* <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="My Marker"
-          /> */}
-
           <Marker
             lat={6.848856}
             lng={80.025679}
@@ -53,7 +43,5 @@ class SimpleMap extends Component {
     );
   }
 }
-
-
 
 export default SimpleMap;
