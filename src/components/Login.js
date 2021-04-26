@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loginActions } from '../actions/loginAction'
-import SimpleMap from '../utils/SimpleMap'
 
 class Login extends Component {
 
@@ -34,7 +33,7 @@ class Login extends Component {
     return (
       <div>
         <nav className="navbar navbar-light navBar" >
-          <h4 className="navBarTitle">User details view application</h4>
+          <h4 className="navBarTitle">User Details View Application</h4>
         </nav>
         <div className="container">
           <div className="row">

@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgba(221, 221, 221, 0.562);
+  background-color: #f5f6fa;
 }
 
 code {
@@ -19,7 +19,7 @@ code {
 }
 
 .navBar {
-  background-color:#563d7c;
+  background-color:#ec4b4b;
 }
 
 .navBarTitle {
@@ -34,7 +34,7 @@ code {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #253242;
   overflow-x: hidden;
   padding-top: 16px;
   margin-right: 15px;
@@ -45,12 +45,12 @@ code {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 20px;
-  color: #818181;
+  color: #566173;
   display: block;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: #f1f1f1; 
 }
 
 ul {
@@ -69,7 +69,7 @@ li a {
 }
 
 li a.active {
-  background-color: #df038a;
+  background-color: #fe124b;
   color: white;
 }
 
@@ -87,8 +87,8 @@ li a:hover:not(.active) {
 .hrLineStaff {
   margin-bottom: 0px;
   height:1px;
-  color:rgb(223, 10, 187);
-  background-color:rgb(223, 10, 187);
+  color:#fe124b;
+  background-color:#fe124b;
 }
 
 .divUser {
@@ -102,10 +102,10 @@ li a:hover:not(.active) {
 }
 
 .messageButton {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
-  border-radius: 4px;
+  color: white;
+  background-color: #fe124b;
+  border: 2px solid #fe124b;
+  border-radius: 0px;
   margin-top: 5px;
   margin-right: 5px;
   margin-left: 5px;
@@ -114,25 +114,27 @@ li a:hover:not(.active) {
 }
 
 .messageButton:hover{
-  color: #6e6969;
-  border: #6e6969 solid 1px;
-  background:white;
+  color: white;
+  border: 2px solid #ec4b4b;
+  background:#ec4b4b;
 }
 
 .sosButton {
+  color: white;
   margin-bottom: 5px;
   margin-left: 5px;
   margin-right: 5px;
-  background-color: rgb(241, 7, 171);;
-  border: 1px solid rgb(241, 7, 171);
+  background-color: #fe124b;
+  border: 2px solid #fe124b;
   border-radius: 50%;
   height: 120%;
+
 }
 
 .sosButton:hover{
-  color: rgb(27, 7, 7);
-  border: 1px solid #ec0f0f;
-  background:#f1106e;
+  color: white;
+  border: 2px solid #ec4b4b;
+  background:#ec4b4b;
 }
 
 .staffButton {
@@ -180,16 +182,23 @@ li a:hover:not(.active) {
 
 .cardMarginOne {
   margin-top: 10px;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
   margin-right: 5px;
 }
 
 .cardMarginTwo {
-  margin-top: 10px;
-  margin-left: 5px;
+  margin-top: -25px;
+  margin-left: 0px;
   margin-bottom: 10px;
   margin-right: 5px;
+}
+
+.cardMarginThree {
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  margin-right: 0px;
 }
 
 .navBarMargine {
@@ -200,7 +209,26 @@ li a:hover:not(.active) {
   text-align: right;
 }
 
-.ss {
+.cardBackground {
   background-color: #ffffff;
 }
+
+.text-color {
+  color: #ec4b4b;
+}
+
+.mapCard {
+  padding-bottom: 0px;
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.staffCard {
+  padding-bottom: 0px;
+  padding-top: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 

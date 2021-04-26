@@ -28,27 +28,32 @@ class Dashboard extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    componentWillMount() {
-        axios.post('http://apps.avantrio.xyz:8010/api/user/login', {
-            username: 'achala',
-            password: 'Test@1234'
-        })
-            .then(response => {
-                if (response.data.token) {
-                    this.setState({
-                        token: response.data.token
-                    });
-                    this.props.fetchUsers(response.data.token);
-                }
-            })
-            .catch(error => {
+    // componentWillMount() {
+    //     axios.post('http://apps.avantrio.xyz:8010/api/user/login', {
+    //         username: 'achala',
+    //         password: 'Test@1234'
+    //     })
+    //         .then(response => {
+    //             if (response.data.token) {
+    //                 this.setState({
+    //                     // token: response.data.token
+    //                 });
+    //                 // this.props.fetchUsers(response.data.token);
+    //             }
+    //         })
+    //         .catch(error => {
 
-            })
+    //         })
 
+    // }
+
+    componentDidMount() {
+        const {token} = this.props;
+        this.props.fetchUsers(token);
     }
 
     staffHandler = (id) => {
-        const token = this.state.token;
+        const {token} = this.props;
         axios.get('http://apps.avantrio.xyz:8010/api/user/' + id + '/logs', { headers: { "Authorization": `Bearer ${token}` } })
             .then(res => {
                 this.setState({
@@ -69,8 +74,8 @@ class Dashboard extends Component {
 
     render() {
         const { userLogs, name, latitude, longitude } = this.state;
+        const {users } = this.props;
         return (
-            // <div className="container">
             <div className="row">
                 <div className="col-md-1">
                     <ul className="sidebar">
@@ -83,8 +88,6 @@ class Dashboard extends Component {
                     </ul>
                 </div>
                 <div className="col-md-10">
-                    {/* <div className="card cardMarginOne">
-                        <div className="card-header"> */}
                     <div className="row divTop">
                         <div className="col-md-2">MONITOR</div>
                         <div className="col-md-7"></div>
@@ -92,27 +95,26 @@ class Dashboard extends Component {
                             <button className="button messageButton">Message</button>
                         </div>
                         <div className="col-md-1 divTextAlign">
-                            <button className="button sosButton">SOS</button>
+                            <button className="button sosButton shadow">SOS</button>
                         </div>
                     </div><hr className="hrLine"></hr>
                     <div className="row">
                         <div className="col-md-4">
-                            <div className="card cardMarginOne">
-                                <div className="card-header">
+                            <div className="card cardMarginThree border-0 shadow-sm p-3 mb-5 bg-white rounded">
+                                <div className="card-header cardBackground mapCard">
                                     <div className="row">
                                         <div className="col-md-12">
-                                            <h5>Staff</h5>
-                                            <hr className="hrLineStaff"></hr>
+                                            <h6 className="text-color">STAFF</h6>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="card-body">
+                                <div className="card-body border-top border-danger staffCard">
                                     <table className="table table-borderless">
                                         <thead>
                                         </thead>
                                         <tbody>
                                             {
-                                                this.props.userData.users.map(
+                                                this.props.users.map(
                                                     user =>
                                                         <tr>
                                                             <button className="button staffButton" onClick={() => this.staffHandler(user.id)}>{user.name}</button>
@@ -127,8 +129,8 @@ class Dashboard extends Component {
                         <div className="col-md-8">
                             <div className="row">
                                 <div className="col-md-12">
-                                    <div className="card cardMarginTwo">
-                                        <div className="card-body">
+                                    <div className="card cardMarginOne border-0 cardBackground shadow-sm p-3 mb-5 bg-white rounded">
+                                        <div className="card-body mapCard">
                                             <SimpleMap latitude={latitude} longitude={longitude} />
                                         </div>
                                     </div>
@@ -136,16 +138,15 @@ class Dashboard extends Component {
                             </div>
                             <div className="row">
                                 <div className="col-md-12">
-                                    <div className="card cardMarginTwo">
-                                        <div className="card-header">
+                                    <div className="card cardMarginTwo border-0 shadow-sm p-3 mb-5 bg-white rounded">
+                                        <div className="card-header cardBackground mapCard">
                                             <div className="row">
                                                 <div className="col-md-12">
                                                     <h6 className="panel-title titleMargin">History  ( {name} )</h6>
-                                                    <hr className="hrLineStaff"></hr>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="card-body">
+                                        <div className="card-body border-top border-danger">
                                             <table className="table table-borderless">
                                                 <thead>
                                                     <button className="button styleRemoveButton">
@@ -179,21 +180,25 @@ class Dashboard extends Component {
                             </div>
                         </div>
                     </div>
-                    {/* </div>
-                    </div> */}
                 </div>
             </div>
-            // </div>
         )
     }
 }
 
 //get data from store(Receive redux state)
-const mapStateToProps = state => {
+// const mapStateToProps = state => {
+//     return {
+//         userData: state.info
+//     }
+// }
+
+const mapStateToProps = (state) => {
     return {
-        userData: state.userData
-    }
-}
+      token: state.login.info,
+      users: state.userData.users
+    };
+  };
 
 //send data to the Action
 const mapDispatchToProps = {
