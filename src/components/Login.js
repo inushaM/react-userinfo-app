@@ -31,7 +31,7 @@ class Login extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
+      <div className='loginBackground '>
         <nav className="navbar navbar-light navBar" >
           <h4 className="navBarTitle">User Details View Application</h4>
         </nav>
@@ -39,9 +39,9 @@ class Login extends Component {
           <div className="row">
             <div className="col-md-2"></div>
             <div className="col-md-8">
-              <div className="card border-primary mb-3 login_card" >
+              <div className="card border-primary mb-3 login_card  rounded" >
                 <div className="card-header"><h4>User Login</h4></div>
-                <div className="card-body text-primary">
+                <div className="card-body text-primary border-top danger">
                   <form onSubmit={this.handleSubmit}>
                     <div className="form-group">
                       <label>User Name:</label>
@@ -58,6 +58,9 @@ class Login extends Component {
             </div>
             <div className="col-md-2"></div>
           </div>
+        </div>
+        <div class="footer">
+          <p>© All Rights Reserved</p>
         </div>
       </div>
     )

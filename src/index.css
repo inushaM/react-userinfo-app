@@ -231,4 +231,15 @@ li a:hover:not(.active) {
   padding-right: 0px;
 }
 
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color:rgb(99, 2, 2) ;
+  color: white;
+  text-align: center;
+}
+
 
